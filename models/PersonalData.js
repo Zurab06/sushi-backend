@@ -37,7 +37,23 @@ const PersonalDataSchema = Schema({
   code: {
     type: String,
     required: true
+  },
+  card: {
+    type: String,
+    required: true,
+    default: "Картой",
+  },
+  sum: Number,
+  email: {
+    type: String,
+    required: true,
+  },
+  comments: {
+    type: String,
+    required: true
   }
 })
 
-module.exports = model("personalData", PersonalDataSchema)
+const PersonalData = model("personalData", PersonalDataSchema)
+
+module.exports = PersonalData
