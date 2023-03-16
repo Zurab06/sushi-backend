@@ -4,17 +4,17 @@ const authRouter = require('./routes/authRouter')
 const dotenv = require('dotenv')
 
 dotenv.config()
-//сохранение
+
 const PORT = 5000
 const app = express()
 app.use(express.json())
 app.use('/auth', authRouter)
-
+app.use(require("./routes/authRouter"))
 const start = async () => {
 
     try {
         await mongoose.connect(process.env.mongo_server)
-        console.log('Mongo connect')
+        console.log('ggg')
         app.listen(PORT, () => console.log(`server has been started on ${PORT}`))
     } catch (error) {
         console.log(error)
