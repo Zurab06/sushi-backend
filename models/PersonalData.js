@@ -22,27 +22,27 @@ const PersonalDataSchema = Schema({
     required: true
   },
   home: {
-    type: Number,
+    type: String,
     required: true
   },
   flat: {
-    type: Number,
+    type: String,
     required: true
   },
   entrance: {
-    type: Number,
+    type: String,
     required: true
   },
   floor: {
-    type: Number,
+    type: String,
     required: true
   },
-  code: Number,
+  code: String,
   card: {
     type: String,
     default: "Картой",
   },
-  sum: Number,
+  sum: String,
   email: {
     type: String,
     required: true,
