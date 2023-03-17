@@ -10,6 +10,7 @@ const app = express()
 app.use(express.json())
 app.use('/auth', authRouter)
 app.use(require("./routes/authRouter"))
+app.use(require('./routes/personalData.js'))
 const start = async () => {
 
     try {

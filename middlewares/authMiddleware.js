@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {secret} = require('../config')
+const { secret } = require('../config')
 
 module.exports = function (req, res, next) {
     if (req.method === 'OPTIONS') {
@@ -7,15 +7,16 @@ module.exports = function (req, res, next) {
     }
 
     try {
-        const token = req.headers.authorization.split(' ')[1]
-        if(!token){
-            return res.status(403).json({message:'доступ только для админа'})
+        const token = req.headers.authorization.split(' ')[1];
+        if (!token) {
+            return res.status(403).json({ message: 'доступ только для админа не токена' })
         }
-        const decodedData = jwt.verify(token,secret)
-        req.user=decodedData
+        const decodedData = jwt.verify(token, secret)
+
+        req.user = decodedData
         next()
     } catch (error) {
-        console.log(error)
-        return res.status(403).json({message:'доступ только для админа'})
+        console.log(error.message)
+        return res.status(403).json({ message: 'доступ только для админа ' })
     }
 }

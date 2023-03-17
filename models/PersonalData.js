@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose")
 
 const PersonalDataSchema = Schema({
+  user: {
+    type: String,
+    required: true
+  },
   surname: {
     type: String,
     required: true
@@ -11,7 +15,6 @@ const PersonalDataSchema = Schema({
   },
   delivery: {
     type: String,
-    required: true,
     default: "курьер"
   },
   street: {
@@ -34,16 +37,12 @@ const PersonalDataSchema = Schema({
     type: String,
     required: true
   },
-  code: {
-    type: String,
-    required: true
-  },
+  code: String,
   card: {
     type: String,
-    required: true,
     default: "Картой",
   },
-  sum: Number,
+  sum: String,
   email: {
     type: String,
     required: true,
