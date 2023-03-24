@@ -12,6 +12,7 @@ module.exports.personalDataController = {
       sum,
       email,
       comments, } = req.body
+    console.log(req.body);
     try {
       const doc = PersonalData({
         user: req.user.id,

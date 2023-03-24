@@ -15,7 +15,7 @@ const PersonalDataSchema = Schema({
   },
   delivery: {
     type: String,
-    default: "курьер"
+    default: "Курьером"
   },
   street: {
     type: String,
@@ -40,16 +40,17 @@ const PersonalDataSchema = Schema({
   code: String,
   card: {
     type: String,
-    default: "Картой",
+    default: "Наличными",
   },
   sum: String,
+  oddMoney: false,
   email: {
     type: String,
     required: true,
   },
   comments: {
     type: String,
-    required: true
+    default: ''
   }
 })
 
