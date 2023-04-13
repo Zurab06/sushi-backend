@@ -4,9 +4,13 @@ const Adding = new Schema({
     id:{type:Number,unique:true, required: true},
     name:{type:String,required: true},
     weight:{type: Number,required: true},
-    image:{type:string,required: true}
+    image:{type:String,},
+    pieces:{type:Number,required:true},
+    price:{type: Number,required:true},
+
+
 })
 
 
 
-module.exports = model('User',User)
+module.exports = model('Adding',Adding)
