@@ -21,7 +21,7 @@ module.exports.authController = {
         try {
             const errors = validationResult(req)
             if (!errors) {
-                return res.json(400).json({ message: 'ршибка при регистрации', errors })
+                return res.json(400).json({ message: 'oшибка при регистрации', errors })
             }
             const candidate = await User.findOne({ username })
             if (candidate) {
@@ -31,7 +31,7 @@ module.exports.authController = {
             const userRole = await Role.findOne({ value: 'USER' })
             const user = new User({ username, password: hashPassword, roles: [userRole.value] })
             await user.save()
-            return res.json({ messag: 'пользователь успешно зарегистрирован' })
+            return res.json({ message: 'пользователь успешно зарегистрирован' })
         } catch (error) {
             console.log(error);
             res.status(400).json({ message: 'registration error' })
