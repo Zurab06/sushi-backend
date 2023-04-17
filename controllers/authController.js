@@ -21,7 +21,7 @@ module.exports.authController = {
         try {
             const errors = validationResult(req)
             if (!errors) {
-                return res.json(400).json({ message: 'ршибка при регистрации', errors })
+                return res.json(400).json({ message: 'oшибка при регистрации', errors })
             }
             const candidate = await User.findOne({ username })
             if (candidate) {
@@ -31,7 +31,7 @@ module.exports.authController = {
             const userRole = await Role.findOne({ value: 'USER' })
             const user = new User({ username, password: hashPassword, roles: [userRole.value] })
             await user.save()
-            return res.json({ messag: 'пользователь успешно зарегистрирован' })
+            return res.json({ message: 'пользователь успешно зарегистрирован' })
         } catch (error) {
             console.log(error);
             res.status(400).json({ message: 'registration error' })
@@ -53,17 +53,19 @@ module.exports.authController = {
             return res.json({ token })
         } catch (error) {
             console.log({ error });
-            res.status(400).json({ message: 'login error' })
+            res.status(400).json({ message: 'username error' })
         }
     },
 
-    async getUsers(req, res) {
+    async isAuth(req, res) {
+        const userId = req.user.id
         try {
-            const users = await User.find()
+            const users = await User.findById(userId)
             res.json(users)
         } catch (error) {
             console.log(error);
         }
     }
+
 
 }
