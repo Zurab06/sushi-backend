@@ -53,17 +53,19 @@ module.exports.authController = {
             return res.json({ token })
         } catch (error) {
             console.log({ error });
-            res.status(400).json({ message: 'login error' })
+            res.status(400).json({ message: 'username error' })
         }
     },
 
-    async getUsers(req, res) {
+    async isAuth(req, res) {
+        const userId = req.user.id
         try {
-            const users = await User.find()
+            const users = await User.findById(userId)
             res.json(users)
         } catch (error) {
             console.log(error);
         }
     }
+
 
 }
